@@ -1,51 +1,38 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.5.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
+    id 'org.springframework.boot' version '2.2.5.RELEASE' apply false
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE' apply false
 }
 
-group 'com.com.zsx'
+group 'com.zsx'
 version '1.0-SNAPSHOT'
+
+sourceCompatibility = 13
+targetCompatibility = 13
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public' }
+    maven { url 'http://mvnrepository.com/' }
+    maven { url 'https://repo1.maven.org/maven2/' }
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+}
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.6.1'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.1'
+}
 
 // 配置所有项目公共信息
 allprojects {
-    sourceCompatibility = 13
-    targetCompatibility = 13
-    repositories {
-        mavenLocal()
-        maven{
-            url 'http://maven.aliyun.com/nexus/content/groups/public/'
-        }
-        maven {
-            url 'https://plugins.gradle.org/m2/'
-        }
-        mavenCentral()
-        jcenter()
-        maven {
-            url 'https://maven.springframework.org/release'
-        }
-        google()
-    }
-    dependencyManagement {
-        imports {
-            // 插件org.springframework.boot已经包含了版本管理功能,这个声明可以不要
-            // mavenBom "org.springframework.boot:spring-boot-starter-parent:2.2.5.RELEASE"
-            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR3'
-        }
-    }
-    dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-web'
-        testImplementation('org.springframework.boot:spring-boot-starter-test') {
-            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-        }
-        testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.6.1'
-        testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.1'
-    }
-    test {
-        useJUnitPlatform()
-    }
+
 }
 //配置子项目内容
 subprojects {
-
+    if (name.startsWith('my')) {
+        apply plugin: 'org.springframework.boot'
+        apply plugin: 'io.spring.dependency-management'
+    }
 }

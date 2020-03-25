@@ -35,8 +35,11 @@ gradle wrapper
 // 注意buildscript必须在顶部
 buildscript {
     repositories {
-		maven { url 'https://maven.aliyun.com/repository/public' }
-		mavenCentral()
+		mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'http://mvnrepository.com/' }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        mavenCentral()
         jcenter()
     }
     dependencies {
@@ -46,6 +49,7 @@ buildscript {
 }
 
 repositories {
+    mavenLocal()
 	maven { url 'https://maven.aliyun.com/repository/public' }
 	maven { url 'http://mvnrepository.com/' }
 	maven { url 'https://repo1.maven.org/maven2/' }
