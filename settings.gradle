@@ -1,3 +1,2 @@
 rootProject.name = 'my-web'
-include "my-web", "my-web-common","my-web-login"
-
+include "my-web-main", "my-web-common","my-web-login"
