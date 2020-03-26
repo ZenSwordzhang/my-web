@@ -1,0 +1,16 @@
+plugins {
+}
+
+repositories {
+}
+
+dependencies {
+    compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    compile ('org.springframework.cloud:spring-cloud-netflix-turbine') {
+        exclude module:"spring-boot-starter-tomcat"
+    }
+    // 熔断器仪表盘监控
+    compile ('org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard') {
+        exclude module:"spring-boot-starter-tomcat"
+    }
+}
