@@ -24,9 +24,21 @@ allprojects {
         jcenter()
         mavenCentral()
         mavenLocal()
+        // spring仓库
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+        maven { url "http://repo.spring.io/release" }
+        maven { url 'http://repo.spring.io/plugins-snapshot' }
     }
     dependencies {
-        compile('org.springframework.boot:spring-boot-starter-web')
+        // 使用springboot-web组件，但是排除tomcat组件
+        compile('org.springframework.boot:spring-boot-starter-web') {
+            exclude module:"spring-boot-starter-tomcat"
+        }
+        // 使用undertow作为应用服务,作为servlet容器
+        compile 'org.springframework.boot:spring-boot-starter-undertow'
+        // 使用健康检查组件
+        compile 'org.springframework.boot:spring-boot-starter-actuator'
         testCompile('org.springframework.boot:spring-boot-starter-test')
         testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.6.1'
         testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.1'
