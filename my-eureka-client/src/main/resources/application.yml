@@ -1,5 +1,5 @@
 server:
-  port: 8089
+  port: 8090
 spring:
   application:
     name: my-eureka-client #注册在注册中心的名字，它会进行键值对映射url
