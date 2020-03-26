@@ -8,5 +8,7 @@ dependencies {
     compile ('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client') {
         exclude module:"spring-boot-starter-tomcat"
     }
-    compile 'org.springframework.cloud:spring-cloud-starter-netflix-zuul'
+    compile ('org.springframework.cloud:spring-cloud-starter-netflix-zuul') {
+        exclude module:"spring-boot-starter-tomcat"
+    }
 }
