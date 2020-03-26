@@ -1,4 +1,5 @@
 rootProject.name = 'my-web'
 include "my-web-main", "my-web-common", "my-web-login", 'my-registry-server', 'my-eureka-client'
 include 'my-ribbon'
+include 'my-feign'
 
