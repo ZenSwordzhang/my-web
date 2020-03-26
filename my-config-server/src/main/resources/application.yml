@@ -1,0 +1,22 @@
+spring:
+  application.name: my-config-server
+  cloud:
+    config:
+      # 配置仓库的分支
+      label: master
+      server:
+        git:
+          # 配置 Git 仓库地址
+          uri: https://github.com/
+          # 配置仓库路径（存放配置文件的目录）
+          search-paths: config-repository
+          # 访问 Git 仓库的账号
+          username:
+          # 访问 Git 仓库的密码
+          password:
+server:
+  port: 8095
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8088/eureka/
