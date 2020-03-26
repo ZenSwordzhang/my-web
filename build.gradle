@@ -1,34 +1,44 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.2.5.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-}
-
-group 'com.zsx'
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = 13
-targetCompatibility = 13
-
-repositories {
-    maven { url 'https://maven.aliyun.com/repository/public' }
-    maven { url 'http://mvnrepository.com/' }
-    maven { url 'https://repo1.maven.org/maven2/' }
-    jcenter()
-    mavenCentral()
-    mavenLocal()
-}
-dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.6.1'
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.1'
+    id 'org.springframework.boot' version '2.2.5.RELEASE' apply false
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE' apply false
 }
 
 // 配置所有项目公共信息
 allprojects {
-
+    group 'com.zsx'
+    version '1.0-SNAPSHOT'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    sourceCompatibility = 13
+    targetCompatibility = 13
+    ext {
+        springCloudVersion = 'Hoxton.SR3'
+    }
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'http://mvnrepository.com/' }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        jcenter()
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+        testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.6.1'
+        testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.1'
+    }
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
 }
 //配置子项目内容
 subprojects {
+    // 指定编码格式
+    [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
 }

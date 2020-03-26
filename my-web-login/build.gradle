@@ -1,17 +1,9 @@
 plugins {
-    id 'java'
 }
 
-group 'com.zsx'
-version '1.0-SNAPSHOT'
-
-sourceCompatibility = 13
-targetCompatibility = 13
 
 repositories {
-    mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
