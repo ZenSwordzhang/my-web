@@ -3,4 +3,5 @@ include "my-web-main", "my-web-common", "my-web-login", 'my-registry-server', 'm
 include 'my-ribbon'
 include 'my-feign'
 include 'my-turbine'
+include 'my-zuul'
 
