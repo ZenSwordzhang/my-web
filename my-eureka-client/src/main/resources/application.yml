@@ -1,0 +1,11 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: my-eureka-client #注册在注册中心的名字，它会进行键值对映射url
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8088/eureka/ #注册到注册中心
+  instance:
+    prefer-ip-address: true #用两种方式进行注册，一种是使用主机名注册，一种是使用ip地址进行注册，这里使用ip地址进行注册

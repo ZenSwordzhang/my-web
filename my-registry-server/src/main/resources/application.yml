@@ -7,5 +7,9 @@ eureka:
   client:
     register-with-eureka: false #表示不注册，做集群是设置成true
     fetch-registry: false #表示不拉取，做集群是设置成true
+    serviceUrl:
+      # 覆盖默认的defaultZone
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   instance:
+    hostname: localhost
     prefer-ip-address: true
