@@ -7,4 +7,10 @@ repositories {
 dependencies {
     compile 'org.springframework.cloud:spring-cloud-starter-openfeign'
     compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    // 使用健康检查组件
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    // 熔断器仪表盘监控
+    compile ('org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard') {
+        exclude module:"spring-boot-starter-tomcat"
+    }
 }

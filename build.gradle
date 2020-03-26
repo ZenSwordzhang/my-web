@@ -37,8 +37,6 @@ allprojects {
         }
         // 使用undertow作为应用服务,作为servlet容器
         compile 'org.springframework.boot:spring-boot-starter-undertow'
-        // 使用健康检查组件
-        compile 'org.springframework.boot:spring-boot-starter-actuator'
         testCompile('org.springframework.boot:spring-boot-starter-test')
         testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.6.1'
         testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.1'
