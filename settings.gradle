@@ -5,4 +5,5 @@ include 'my-feign'
 include 'my-turbine'
 include 'my-zuul'
 include 'my-config-server'
+include 'my-config-client'
 
