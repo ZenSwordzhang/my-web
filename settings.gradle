@@ -6,4 +6,5 @@ include 'my-turbine'
 include 'my-zuul'
 include 'my-config-server'
 include 'my-config-client'
+include 'my-zipkin'
 

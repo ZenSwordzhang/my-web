@@ -1,0 +1,17 @@
+plugins {
+}
+
+repositories {
+}
+
+dependencies {
+    compile ('io.zipkin.java:zipkin-server:2.12.8') {
+        exclude module: "spring-boot-starter-tomcat"
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-log4j2'
+    }
+    // 引入zipkin-server 图形化界面
+    compile ('io.zipkin.java:zipkin-autoconfigure-ui:2.12.8') {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+}

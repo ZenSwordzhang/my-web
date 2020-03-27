@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: my-register-server
+  zipkin:
+    # 基于Undertow WEB服务器，提供对外端口：9411，Tomcat:8080
+    base-url: http://localhost:9411
 eureka:
   client:
     register-with-eureka: false #表示不注册，做集群是设置成true
