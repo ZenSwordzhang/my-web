@@ -64,7 +64,7 @@ apply plugin: 'org.springframework.boot'
 // 使用spring boot的自动依赖管理
 apply plugin: 'io.spring.dependency-management'
 
-group 'com.zsx'
+group 'com.com.zsx'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 13

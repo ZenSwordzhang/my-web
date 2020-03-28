@@ -7,4 +7,6 @@ include 'my-zuul'
 include 'my-config-server'
 include 'my-config-client'
 include 'my-zipkin'
+include 'my-admin-server'
+include 'my-admin-client'
 
