@@ -1,0 +1,25 @@
+@startuml
+title 登录流程图
+start
+:登录;
+if(是否成功) then (false)
+    :登录失败;
+    if(账号是否存在) then (false)
+        :注册账号;
+        :注册成功;
+    else (true)
+        if(是否找回密码) then (true)
+            :成功修改密码;
+        else (false)
+            :登录失败;
+            stop
+        endif
+    endif
+    :登录成功;
+    stop
+else (true)
+    :登录成功;
+stop
+
+
+@enduml
