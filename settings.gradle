@@ -9,4 +9,6 @@ include 'my-config-client'
 include 'my-zipkin'
 include 'my-admin-server'
 include 'my-admin-client'
+include 'my-consul-server'
+include 'my-consul-client'
 

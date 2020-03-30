@@ -1,0 +1,16 @@
+plugins {
+}
+
+repositories {
+}
+
+dependencies {
+    compile 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    // 熔断器仪表盘监控
+    compile ('org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard') {
+        exclude module:"spring-boot-starter-tomcat"
+    }
+    compile 'org.springframework.cloud:spring-cloud-starter-consul-discovery'
+    compile 'org.springframework.cloud:spring-cloud-starter-zipkin'
+    compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '2.2.2'
+}
