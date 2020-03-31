@@ -11,4 +11,5 @@ include 'my-admin-server'
 include 'my-admin-client'
 include 'my-consul-server'
 include 'my-consul-client'
+include 'my-zookeeper-server'
 
